@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   app:
-    image: spring-boot-concurrencyapp # spring boot application name
+    image: spring-boot-concurrencyapp # spring boot application container name
     build:
       context: . # Build the Dockerfile from the current directory
     environment:
@@ -45,4 +44,4 @@ networks:
 
 volumes:
   postgres_data:
-    driver: local
+    # driver: local Implicitly works without specifying
