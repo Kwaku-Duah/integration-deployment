@@ -5,7 +5,7 @@ import com.threads.concurrency.Exceptions.ChefNotFoundException;
 import com.threads.concurrency.Services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;  // Correct import
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +28,11 @@ public class ChefController {
     public ResponseEntity<Page<Chef>> getAllChefs(Pageable pageable) {
         Page<Chef> chefs = chefService.getAllChefs(pageable);
         return new ResponseEntity<>(chefs, HttpStatus.OK);
+    }
+
+    @GetMapping("/welcome")
+    public ResponseEntity<String> welcomeMessage() {
+        return new ResponseEntity<>("Welcome, welcome to successful Kubernetes orchestration", HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
