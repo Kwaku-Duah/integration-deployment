@@ -1,9 +1,11 @@
-
-
-
 pipeline {
     agent any
     
+    options {
+        // Set the global timeout for the entire pipeline
+        timeout(time: 20, unit: 'MINUTES')
+    }
+
     stages {
         stage('Setup Git Config') {
             steps {
@@ -41,4 +43,3 @@ pipeline {
         }
     }
 }
-
